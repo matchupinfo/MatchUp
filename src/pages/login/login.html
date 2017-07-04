@@ -1,0 +1,56 @@
+<ion-content padding class="background" id="login">
+
+  <div>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Israel_football_association.svg/901px-Israel_football_association.svg.png"
+      style="max-height:130px; margin: auto !important;" class="img-responsive" alt="Cinque Terre">
+  </div>
+  <h2 style="text-align: center;color:#ffffff;">Team App</h2>
+  <p style="text-align: center;color:#ffffff;">
+    ברוכים הבאים לאפליקציית הכוחות הראשונה בישראל
+  </p>
+  <br>
+  <p style="text-align: center;color:#ffffff;">
+    התחברות משתמש קיים
+  </p>
+  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+    <!--divs-->
+    <div class="row responsive-md">
+      <div class="col col-50 col-offset-25">
+        <!---->
+
+        <ion-item>
+          <ion-label stacked text-right>אימייל</ion-label>
+          <ion-input #email formControlName="email" type="email" placeholder="כתובת המייל שלך" [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+          <p>כתובת המייל אינה חוקית</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked text-right>סיסמה</ion-label>
+          <ion-input #password formControlName="password" type="password" placeholder="הסיסמה שלך" [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+          <p>הסיסמה צריכה להכיל מעל 6 תווים</p>
+        </ion-item>
+
+        <button ion-button block type="submit">
+      התחבר
+    </button>
+        <button ion-button block clear style="color:white;" (click)="goToSignup()">
+      צור חשבון חדש
+    </button>
+
+        <button ion-button block clear style="color:white;" (click)="goToResetPassword()">
+      שכחתי את הסיסמה שלי
+    </button>
+
+      </div>
+    </div>
+
+  </form>
+
+
+
+
+</ion-content>
